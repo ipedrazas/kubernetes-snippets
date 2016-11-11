@@ -23,6 +23,14 @@
             {
                 "language": "yaml",
                 "path": "./snippets/kube.json"
+            },
+            {
+                "language": "yaml",
+                "path": "./snippets/deployment.json"
+            },
+            {
+                "language": "yaml",
+                "path": "./snippets/containers.json"
             }
         ]
     },

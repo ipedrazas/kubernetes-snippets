@@ -12,16 +12,7 @@
         "description": "Api v1",
         "body": "apiVersion: v1"
     },
-    "deployment" :{
-        "prefix": "deployment_simple",
-        "description": "Simple deployment template",
-        "body": "apiVersion: extensions/v1beta1\nkind: Deployment\nmetadata:\n  name: ${name:Enter deployment name}\nspec:\n  replicas: ${replicas:Enter the number of replicas}\n  template:\n    metadata:\n      labels:\n        editor: vscode\n    spec:\n      containers:\n      - name: ${name}\n        image: ${image:Enter containers image}"
-    },
-    "deployment_complete":{
-        "prefix": "deployment_complete",
-        "description": "template for a complete deployment",
-        "body": "apiVersion: extensions/v1beta1\nkind: Deployment\nmetadata:\n  name: ${name: my-name}\n  labels:\n    name: ${name: my-name}\nspec:\n  strategy:\n    rollingUpdate:\n      maxSurge: 1\n      maxUnavailable: 1\n    type: RollingUpdate\n  template:\n    metadata:\n      labels:\n        name: ${name: my-name}\n    spec:\n      containers:\n      - image: ${image: ipedrazas/docmock}\n        name: api-${name: my-name}\n        resources:\n          requests:\n            cpu: \"20m\"\n            memory: \"55M\"\n        imagePullPolicy: Always\n        livenessProbe:\n          httpGet:\n            path: /_status/healthz\n            port: 5000\n          initialDelaySeconds: 90\n          timeoutSeconds: 10\n        readinessProbe:\n          httpGet:\n            path: /_status/healthz\n            port: 5000\n          initialDelaySeconds: 30\n          timeoutSeconds: 10\n        env:\n        - name: ${ENVVARNAME: ENVVARNAME}\n          value: ${ENVVARVALUE: ENVVARVALUE}       \n        ports:\n        - containerPort: ${port: 5000}\n          name: ${name: my-name}\n        volumeMounts:\n        - mountPath: /data\n          name: data\n      volumes:\n        - name: data\n          emptyDir: {}"
-    },
+    
     "ports_svc":{
         "prefix": "ports_svc",
         "description": "ports in services",
@@ -31,5 +22,11 @@
         "prefix": "service_complete",
         "description": "template for a complete kubernetes service",
         "body": "kind: Service\napiVersion: v1\nmetadata:\n  name: ${name: Service Name}\nspec:\n  selector:\n    app: ${selector: Selector Label}\n  type: ${type: LoadBalancer | Cluster}\n  ports:\n  - name: ${portName: name-of-the-port}\n    port: ${port: 80}\n    targetPort: ${targetPort: 8080}"
+    },
+    "job":{
+        "prefix": "job",
+        "description": "kubernetes job",
+        "body": "apiVersion: batch/v1\nkind: Job\nmetadata:\n  name: ${name: name}\nspec:\n  template:\n    metadata:\n      name: ${name: name}\n    spec:\n      containers:"
     }
 }
+
