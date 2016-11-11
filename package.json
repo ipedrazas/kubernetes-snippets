@@ -1,0 +1,33 @@
+{
+    "name": "kubernetes-snippets",
+    "description": "Code snippets of kubernetes for Visual Studio Code.",
+    "displayName": "Kubernetes Support",
+    "version": "0.1.0",
+    "publisher": "ipedrazas",
+    "icon": "images/kubernetes-logo.png",
+    "license": "MIT",
+    "engines": {
+        "vscode": "0.10.x"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "keywords": [
+		"kubernetes",
+		"pods",
+		"deployments",
+        "services"
+	],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "yaml",
+                "path": "./snippets/kube.json"
+            }
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ipedrazas/kubernetes-snippets.git"
+    }
+}
