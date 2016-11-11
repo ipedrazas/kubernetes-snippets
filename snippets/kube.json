@@ -7,61 +7,29 @@
         ],
         "description": "apiVersion"
     },
-    "pod":{
-        "prefix": "simple_pod",
-        "body": "apiVersion: extensions/v1beta1\nkind: Deployment\nmetadata:\n\tname: load-traffic",
-        "description": "pod definition"
+    "api":{
+        "prefix": "apiVersion_v1",
+        "description": "Api v1",
+        "body": "apiVersion: v1"
     },
     "deployment" :{
         "prefix": "deployment_simple",
         "description": "Simple deployment template",
         "body": "apiVersion: extensions/v1beta1\nkind: Deployment\nmetadata:\n  name: ${name:Enter deployment name}\nspec:\n  replicas: ${replicas:Enter the number of replicas}\n  template:\n    metadata:\n      labels:\n        editor: vscode\n    spec:\n      containers:\n      - name: ${name}\n        image: ${image:Enter containers image}"
     },
-    "api":{
-        "prefix": "apiVersion_v1",
-        "description": "Api v1",
-        "body": "apiVersion: v1"
-    },
-    "ports": {
-        "prefix": "ports",
-        "body": "ports:\n- name: ${name: Port Name}\n  port: ${port: Port}\n  protocol: TCP",
-        "description": "apiVersion"
+    "deployment_complete":{
+        "prefix": "deployment_complete",
+        "description": "template for a complete deployment",
+        "body": "apiVersion: extensions/v1beta1\nkind: Deployment\nmetadata:\n  name: ${name: my-name}\n  labels:\n    name: ${name: my-name}\nspec:\n  strategy:\n    rollingUpdate:\n      maxSurge: 1\n      maxUnavailable: 1\n    type: RollingUpdate\n  template:\n    metadata:\n      labels:\n        name: ${name: my-name}\n    spec:\n      containers:\n      - image: ${image: ipedrazas/docmock}\n        name: api-${name: my-name}\n        resources:\n          requests:\n            cpu: \"20m\"\n            memory: \"55M\"\n        imagePullPolicy: Always\n        livenessProbe:\n          httpGet:\n            path: /_status/healthz\n            port: 5000\n          initialDelaySeconds: 90\n          timeoutSeconds: 10\n        readinessProbe:\n          httpGet:\n            path: /_status/healthz\n            port: 5000\n          initialDelaySeconds: 30\n          timeoutSeconds: 10\n        env:\n        - name: ${ENVVARNAME: ENVVARNAME}\n          value: ${ENVVARVALUE: ENVVARVALUE}       \n        ports:\n        - containerPort: ${port: 5000}\n          name: ${name: my-name}\n        volumeMounts:\n        - mountPath: /data\n          name: data\n      volumes:\n        - name: data\n          emptyDir: {}"
     },
     "ports_svc":{
         "prefix": "ports_svc",
         "description": "ports in services",
         "body": "ports:\n- name: ${name: Port Name}\n  port: ${port: Port}\n  targetPort: ${target: Target port}"
     },
-    "imagePullSecrets":{
-        "prefix": "imagePullSecrets",
-        "description": "Secret with registry credentials",
-        "body": "imagePullSecrets:\n  - name: ${secret: Secret with Registry credentials}" 
-    },
-    "deployment_complete":{
-        "prefix": "deployment_complete",
-        "description": "template for a complete deployment",
-        "body": "apiVersion: extensions/v1beta1\nkind: Deployment\nmetadata:\n  name: ${name: my-name}\n  labels:\n    name: ${name: my-name}\nspec:\n  strategy:\n    rollingUpdate:\n      maxSurge: 1\n      maxUnavailable: 1\n    type: RollingUpdate\n  template:\n    metadata:\n      labels:\n        name: ${name: my-name}\n    spec:\n      containers:\n      - image: ${image: ipedrazas/docmock}\n        name: api-${name: my-name}\n        resources:\n          requests:\n            cpu: \"20m\"\n            memory: \"55M\"\n        imagePullPolicy: Always\n        livenessProbe:\n          httpGet:\n            path: /_status/healthz\n            port: 5000\n          initialDelaySeconds: 90\n          timeoutSeconds: 10\n        readinessProbe:\n          httpGet:\n            path: /_status/healthz\n            port: 5000\n          initialDelaySeconds: 30\n          timeoutSeconds: 10\n        env:\n        - name: ${ENVVARNAME: ENVVARNAME}\n          value: ${ENVVARVALUE: ENVVARVALUE}       \n        ports:\n        - containerPort: ${port: 5000}\n          name: ${name: my-name}\n        volumeMounts:\n        - mountPath: /data\n          name: data\n      volumes:\n        - name: data\n          emptyDir: {}"
-    }
-    ,
     "service_complete":{
         "prefix": "service_complete",
         "description": "template for a complete kubernetes service",
-        "body": "kind: Service\napiVersion: v1\nmetadata:\n  name: ${name: Service Name}\nspec:\n  selector:\n    app: ${selector: Selector Label}\n  type: ${type: 'LoadBalancer | Cluster']}\n  ports:\n  - name: ${portName: name-of-the-port}\n    port: ${port: 80}\n    targetPort: ${targetPort: 8080}"
-    },
-    "volumeMounts":{
-        "prefix": "volumeMounts",
-        "description": "Entry for VolumeMounts",
-        "body": "volumeMounts:\n  - name: ${name: Name of the Volume}\n  mountPath: ${path: Path to mount}"
-    },
-    "volumes":{
-        "prefix": "volumes",
-        "description": "volumes",
-        "body": "volumes:\n  - name: ${name: name of the volume}\n  mountPath: ${path: Path to mount}"
-    },
-    "volumes_hostPath":{
-        "prefix": "volumes_hostPath",
-        "description": "Snippet for volumes hostPath",
-        "body": "volumes:\n  - name: ${name: Volume Name}\n  hostPath:\n    path: ${path: Path to mount}"
+        "body": "kind: Service\napiVersion: v1\nmetadata:\n  name: ${name: Service Name}\nspec:\n  selector:\n    app: ${selector: Selector Label}\n  type: ${type: LoadBalancer | Cluster}\n  ports:\n  - name: ${portName: name-of-the-port}\n    port: ${port: 80}\n    targetPort: ${targetPort: 8080}"
     }
 }
-
