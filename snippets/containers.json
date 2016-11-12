@@ -53,5 +53,10 @@
         "prefix": "containers",
         "description": "container",
         "body": "containers:\n  - image: ${image: image}\n  name: ${name: my-name}\n  env:\n    - name: ${ENVVARNAME: ENVVARNAME}\n      value: ${ENVVARVALUE: ENVVARVALUE}"
+    },
+    "env_from_secret":{
+        "prefix": "env_from_secret",
+        "description": "Secret from secret",
+        "body": "env:\n  - name: ${envvar: ENV_VAR}\n    valueFrom:\n      secretKeyRef:\n        name: ${name: name}\n        key: ${key: key}"
     }
 }

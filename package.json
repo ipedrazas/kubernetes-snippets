@@ -2,7 +2,7 @@
     "name": "kubernetes-snippets",
     "description": "Code snippets of kubernetes for Visual Studio Code.",
     "displayName": "Kubernetes Support",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publisher": "ipedrazas",
     "icon": "images/kubernetes-logo.png",
     "license": "MIT",

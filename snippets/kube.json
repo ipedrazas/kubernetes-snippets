@@ -27,6 +27,15 @@
         "prefix": "job",
         "description": "kubernetes job",
         "body": "apiVersion: batch/v1\nkind: Job\nmetadata:\n  name: ${name: name}\nspec:\n  template:\n    metadata:\n      name: ${name: name}\n    spec:\n      containers:"
+    },
+    "secret_for_registry":{
+        "body": "//kubectl create secret docker-registry NAME --docker-username=user --docker-password=password --docker-email=email [--docker-server=string] [--from-literal=key1=value1] [--dry-run] \n// dockerconfigjson is a base64 encoded string:  cat ~/.docker/config.json | base64 -w 0 \napiVersion: v1\nkind: Secret\nmetadata:\n  name: ${name: Name_of_the_Secret}\ndata:\n  .dockerconfigjson: ${secret: secret}\ntype: kubernetes.io/dockerconfigjson",
+        "prefix": "secret_for_registry",
+        "description": "complete secret to connect to private registry" 
     }
 }
+
+
+
+
 
