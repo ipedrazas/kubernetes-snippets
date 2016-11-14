@@ -44,3 +44,8 @@ Once you have the template filled, you can add `ports` using the `ports` snippet
                 port: 80
                 protocol: TCP
 
+
+This image shows an example of what you can do with this extension. In 3 words: typing very fast!
+
+![Kubernetes extension example](https://raw.githubusercontent.com/ipedrazas/kubernetes-snippets/master/images/kubernetes-extension.gif "Kubernetes Extension example")
+
