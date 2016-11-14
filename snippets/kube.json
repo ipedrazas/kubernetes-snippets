@@ -32,9 +32,13 @@
         "body": "//kubectl create secret docker-registry NAME --docker-username=user --docker-password=password --docker-email=email [--docker-server=string] [--from-literal=key1=value1] [--dry-run] \n// dockerconfigjson is a base64 encoded string:  cat ~/.docker/config.json | base64 -w 0 \napiVersion: v1\nkind: Secret\nmetadata:\n  name: ${name: Name_of_the_Secret}\ndata:\n  .dockerconfigjson: ${secret: secret}\ntype: kubernetes.io/dockerconfigjson",
         "prefix": "secret_for_registry",
         "description": "complete secret to connect to private registry" 
+    },
+    "secret_template":{
+        "prefix": "secret_template",
+        "description": "Template to generate an opaque secret",
+        "body": "apiVersion: v1\nkind: Secret\nmetadata:\n  name: ${name: secretName}\ndata:\n  ${key: secretKey}: ${value: BASE64_ENCODED_VALUE}\ntype: Opaque"
     }
 }
-
 
 
 
