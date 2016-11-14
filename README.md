@@ -43,3 +43,4 @@ Once you have the template filled, you can add `ports` using the `ports` snippet
                 - name: nginx
                 port: 80
                 protocol: TCP
+
