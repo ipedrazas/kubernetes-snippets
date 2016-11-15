@@ -1,0 +1,21 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: my-svc
+spec:
+  selector:
+    app: myapp
+  type:  LoadBalancer | Cluster
+  ports:
+  - name:  name-of-the-port
+    port:  80
+    targetPort:  8080
+
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysecret
+data:
+  extension: aG9sYQ==
+type: Opaque
