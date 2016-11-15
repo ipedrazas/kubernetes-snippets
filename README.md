@@ -44,8 +44,12 @@ Once you have the template filled, you can add `ports` using the `ports` snippet
                 port: 80
                 protocol: TCP
 
-
 This image shows an example of what you can do with this extension. In 3 words: typing very fast!
 
 ![Kubernetes extension example](https://raw.githubusercontent.com/ipedrazas/kubernetes-snippets/master/images/kubernetes-extension.gif "Kubernetes Extension example")
 
+To create secrets, we can just use the template and write them in plain text. Using the key combination of Cmd+k, Cmd+E if you're in OSX (Ctrl if you're in linux/windows) you can encode to Base64.
+
+![Kubernetes Secrets example](https://raw.githubusercontent.com/ipedrazas/kubernetes-snippets/master/images/secrets-extension.gif "Kubernetes Extension example")
+
+You want to decode a secret, the key combination is Cmd + K, Cmd + D.
