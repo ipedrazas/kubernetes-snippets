@@ -37,6 +37,16 @@
         "prefix": "secret_template",
         "description": "Template to generate an opaque secret",
         "body": "apiVersion: v1\nkind: Secret\nmetadata:\n  name: ${name: secretName}\ndata:\n  ${key: secretKey}: ${value: BASE64_ENCODED_VALUE}\ntype: Opaque"
+    },
+    "namespace":{
+        "prefix": "namespace",
+        "description": "Template to create a namespace",
+        "body": "apiVersion: v1\nkind: Namespace\nmetadata:\n	name: ${name: name}"
+    },
+        "serviceAccount":{
+        "prefix": "serviceAccount",
+        "description": "Template to create a ServiceAccount",
+        "body": "apiVersion: v1\nkind: ServiceAccount\nmetadata:\n	name: ${name: name}"
     }
 }
 
