@@ -58,5 +58,11 @@
         "prefix": "env_from_secret",
         "description": "Secret from secret",
         "body": "env:\n  - name: ${envvar: ENV_VAR}\n    valueFrom:\n      secretKeyRef:\n        name: ${name: name}\n        key: ${key: key}"
+    },
+    "readiness_exec":{
+        "prefix": "readiness",
+        "description": "Template for readinessProbe exec",
+        "body": "livenessProbe:\n  exec:\n    command:\n      - /bin/my-script.sh\n  initialDelaySeconds: 60\n  timeoutSeconds: 10"
     }
 }
+
