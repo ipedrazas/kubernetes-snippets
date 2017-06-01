@@ -21,7 +21,7 @@
     "service_complete":{
         "prefix": "service_complete",
         "description": "template for a complete kubernetes service",
-        "body": "kind: Service\napiVersion: v1\nmetadata:\n  name: ${name: Service Name}\nspec:\n  selector:\n    app: ${selector: Selector Label}\n  type: ${type: LoadBalancer | Cluster}\n  ports:\n  - name: ${portName: name-of-the-port}\n    port: ${port: 80}\n    targetPort: ${targetPort: 8080}"
+        "body": "kind: Service\napiVersion: v1\nmetadata:\n  name: ${name: Service Name}\nspec:\n  selector:\n    app: ${selector: Selector Label}\n  type: ${type: LoadBalancer | ClusterIP | NodePort}\n  ports:\n  - name: ${portName: name-of-the-port}\n    port: ${port: 80}\n    targetPort: ${targetPort: 8080}"
     },
     "job":{
         "prefix": "job",
