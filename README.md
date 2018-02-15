@@ -54,3 +54,10 @@ Once you have the template filled, you can add `ports` using the `ports` snippet
                 port: 80
                 protocol: TCP
 
+
+
+### Extension incompatibillity
+This extension is not compatible with the following extensions:
+
+ * vs-kubernetes
+ * vscode-helm

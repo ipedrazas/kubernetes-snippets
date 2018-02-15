@@ -2,7 +2,7 @@
     "name": "kubernetes-snippets",
     "description": "Code snippets of kubernetes for Visual Studio Code.",
     "displayName": "Kubernetes Support",
-    "version": "0.1.7",
+    "version": "0.1.9",
     "publisher": "ipedrazas",
     "author": "Ivan Pedrazas",
     "icon": "images/kubernetes-logo.png",
@@ -39,6 +39,10 @@
             {
                 "language": "yaml",
                 "path": "./snippets/containers.json"
+            },
+            {
+                "language": "yaml",
+                "path": "./snippets/configmap.json"
             }
         ],
         "commands": [
