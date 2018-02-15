@@ -8,7 +8,7 @@
     "icon": "images/kubernetes-logo.png",
     "license": "MIT",
     "engines": {
-        "vscode": "^0.10.6"
+        "vscode": "^0.10.7"
     },
     "categories": [
         "Snippets",
@@ -18,7 +18,8 @@
         "kubernetes",
         "pods",
         "deployments",
-        "services"
+        "services",
+        "configmaps"
     ],
     "activationEvents": [
         "onCommand:secrets.base64Encode",
