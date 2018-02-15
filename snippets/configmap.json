@@ -1,0 +1,7 @@
+{    
+    "configmap_file" :{
+        "prefix": "configmap_file",
+        "description": "Configmap that contains a file",
+        "body": "apiVersion: v1\nkind: ConfigMap\nmetadata:\n  name: myconfigmap\n  labels:\n    app: myapplication\ndata:\n  my-properties-file.yaml: |\n    # yaml file\n    key: value\n"
+    }
+}
